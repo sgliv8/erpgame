@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Round:</strong>
+  <%= @record.round %>
+</p>
+
+<p>
+  <strong>Begin cash:</strong>
+  <%= @record.begin_cash %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @record.user %>
+</p>
+
+<%= link_to 'Edit', edit_record_path(@record) %> |
+<%= link_to 'Back', records_path %>
