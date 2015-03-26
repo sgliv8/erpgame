@@ -6,13 +6,38 @@
 </p>
 
 <p>
-  <strong>Begin cash:</strong>
+  <strong>Beginning Cash Balance:</strong>
   <%= @record.begin_cash %>
 </p>
 
 <p>
+  <strong>Expenses:</strong>
+  <%= @record.expenses %>
+</p>
+
+<p>
+  <strong>Revenue:</strong>
+  <%= @record.revenue %>
+</p>
+
+<p>
+  <strong>Inventory Penalty:</strong>
+  <%= @record.inventory_penalty %>
+</p>
+
+<p>
+  <strong>Order Penalty:</strong>
+  <%= @record.order_penalty %>
+</p>
+
+<p>
+  <strong>Ending Cash Balance:</strong>
+  <%= @record.end_cash %>
+</p>
+
+<p>
   <strong>User:</strong>
-  <%= @record.user %>
+  <%= @record.user.name %>
 </p>
 
 <%= link_to 'Edit', edit_record_path(@record) %> |
