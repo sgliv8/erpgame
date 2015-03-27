@@ -77,7 +77,7 @@ class UsersController < ApplicationController
     def needs_password?(user, params)
       params[:password].present?
     end
-    
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
