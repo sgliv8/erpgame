@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  #rescue form for flash error message and redirection
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = "Access denied!"
+    redirect_to root_url
+  end
+
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :last_name, :email, :password, :password_confirmation, :role_id) }
