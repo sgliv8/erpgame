@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
   has_many :records
+
+  validates_presence_of :name
+  validates_presence_of :last_name
+
+  
 end
