@@ -18,6 +18,11 @@
     <%= f.email_field :email %>
   </div>
 
+  <div class="field">
+    <%= f.label :role_id %><br>
+    <%= collection_select(:user, :role_id, Role.first(2), :id, :name, prompt: true) %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
