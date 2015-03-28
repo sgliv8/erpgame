@@ -28,8 +28,17 @@
         <td><%= record.order_penalty %></td>
         <td><%= record.end_cash %></td>
         <td><%= link_to 'Show', record %></td>
-        <td><%= link_to 'Edit', edit_record_path(record) %></td>
-        <td><%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if can? :update, record %>
+            <%= link_to 'Edit', edit_record_path(record) %>
+          <% end %>
+        </td>
+        <td>
+          <% if can? :destroy, record %>
+            <%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
+        
       </tr>
     <% end %>
   </tbody>

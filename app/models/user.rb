@@ -9,5 +9,17 @@ class User < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :last_name
 
+  def admin?
+    self.role.name == "Admin"
+  end
+
+  def manufacturer?
+    self.role.name == "Tier 2 Manufacturers"
+  end
+
+  def distributor?
+    self.role.name == "Distributor"
+  end
+
 
 end
