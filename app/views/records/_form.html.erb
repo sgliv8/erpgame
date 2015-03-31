@@ -7,7 +7,7 @@
 <% end %>
 
 
-<%= form_for(@record, html: {class: 'form-horizontal' }) do |f| %>
+<%= form_for(@record, html: {role: 'form' }) do |f| %>
   <div class="form-group" style="display:none;">
     <%= f.text_field :user_id, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', :value => current_user.id, class: 'form-control' %> 
   </div>
@@ -39,7 +39,7 @@
   </div>
   <div class="form-group">
     <label>Ending Cash Balance</label>
-    <%= f.text_field :end_cash, class: 'form-control' %>
+    <%= f.text_field :end_cash, class: 'form-control' %><br/>
     <button id="endcash" class="btn btn-success">Calculate Ending Balance</button>
   </div>
 
