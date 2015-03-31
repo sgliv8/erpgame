@@ -1,8 +1,11 @@
-<% @record.errors.full_messages.each do |msg| %>
+<% if @record.errors.any? %>
   <div class="alert alert-danger">
-    <li><%= msg %></li>
+    <% @record.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
   </div>
 <% end %>
+
 
 <%= form_for(@record, html: {class: 'form-horizontal' }) do |f| %>
   <div class="form-group" style="display:none;">
@@ -10,32 +13,32 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :round %><br>
+    <label>Round</label>
     <%= f.number_field :round, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :begin_cash %><br>
+    <label>Beginning Cash Balance</label>
     <%= f.text_field :begin_cash, class: 'form-control' %>
   </div>
   <div id="beginCashError" style="color: red;"></div>
   <div class="form-group">
-    <%= f.label :expenses %><br>
+    <label>Expenses</label>
     <%= f.text_field :expenses, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :revenue %><br>
+    <label>Revenue</label>
     <%= f.text_field :revenue, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :inventory_penalty %><br>
+    <label>Inventory Penalty</label>
     <%= f.text_field :inventory_penalty, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :order_penalty %><br>
+    <label>Order Penalty</label>
     <%= f.text_field :order_penalty, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :end_cash %><br>
+    <label>Ending Cash Balance</label>
     <%= f.text_field :end_cash, class: 'form-control' %>
     <button id="endcash" class="btn btn-success">Calculate Ending Balance</button>
   </div>
