@@ -6,7 +6,7 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.where(user_id: current_user)
+    @records = Record.where(user_id: current_user).paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /records/1

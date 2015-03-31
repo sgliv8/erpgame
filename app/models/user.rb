@@ -21,5 +21,8 @@ class User < ActiveRecord::Base
     self.role.name == "Distributor"
   end
 
+  def full_name
+  	name + " " + last_name
+  end
 
 end

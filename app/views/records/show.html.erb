@@ -1,44 +1,48 @@
-<p id="notice"><%= notice %></p>
+<h1>Record Details</h1>
 
-<p>
-  <strong>Round:</strong>
+<hr>
+
+<div>
+  <h4>Round:</h4>
   <%= @record.round %>
-</p>
+</div>
 
-<p>
-  <strong>Beginning Cash Balance:</strong>
+<div>
+  <h4>Beginning Cash Balance:</h4>
   <%= @record.begin_cash %>
-</p>
+</div>
 
-<p>
-  <strong>Expenses:</strong>
+<div>
+  <h4>Expenses:</h4>
   <%= @record.expenses %>
-</p>
+</div>
 
-<p>
-  <strong>Revenue:</strong>
+<div>
+  <h4>Revenue:</h4>
   <%= @record.revenue %>
-</p>
+</div>
 
-<p>
-  <strong>Inventory Penalty:</strong>
+<div>
+  <h4>Inventory Penalty:</h4>
   <%= @record.inventory_penalty %>
-</p>
+</div>
 
-<p>
-  <strong>Order Penalty:</strong>
+<div>
+  <h4>Order Penalty:</h4>
   <%= @record.order_penalty %>
-</p>
+</div>
 
-<p>
-  <strong>Ending Cash Balance:</strong>
+<div>
+  <h4>Ending Cash Balance:</h4>
   <%= @record.end_cash %>
-</p>
+</div>
 
-<p>
-  <strong>User:</strong>
+<div>
+  <h4>User:</h4>
   <%= @record.user.name %>
-</p>
+</div>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+<hr>
+
+<%= link_to 'Edit', edit_record_path(@record), class: 'btn btn-primary' %>
+<%= link_to 'Back', records_path, class: 'btn' %>

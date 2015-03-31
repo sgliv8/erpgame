@@ -1,50 +1,55 @@
-<%= form_for(@record) do |f| %>
-  <% if @record.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@record.errors.count, "error") %> prohibited this record from being saved:</h2>
+<% @record.errors.full_messages.each do |msg| %>
+  <div class="alert alert-danger">
+    <li><%= msg %></li>
+  </div>
+<% end %>
 
-      <ul>
-      <% @record.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field" style="display:none;">
-    <%= f.text_field :user_id, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', :value => current_user.id %> 
+<%= form_for(@record, html: {class: 'form-horizontal' }) do |f| %>
+  <div class="form-group" style="display:none;">
+    <%= f.text_field :user_id, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', :value => current_user.id, class: 'form-control' %> 
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :round %><br>
-    <%= f.number_field :round, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json' %>
+    <%= f.number_field :round, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :begin_cash %><br>
-    <%= f.text_field :begin_cash %>
+    <%= f.text_field :begin_cash, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div id="beginCashError" style="color: red;"></div>
+  <div class="form-group">
     <%= f.label :expenses %><br>
-    <%= f.text_field :expenses %>
+    <%= f.text_field :expenses, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :revenue %><br>
-    <%= f.text_field :revenue %>
+    <%= f.text_field :revenue, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :inventory_penalty %><br>
-    <%= f.text_field :inventory_penalty %>
+    <%= f.text_field :inventory_penalty, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :order_penalty %><br>
-    <%= f.text_field :order_penalty %>
+    <%= f.text_field :order_penalty, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :end_cash %><br>
-    <%= f.text_field :end_cash %>
+    <%= f.text_field :end_cash, class: 'form-control' %>
+    <button id="endcash" class="btn btn-success">Calculate Ending Balance</button>
   </div>
-  <button id="endcash">Calculate Ending Balance</button>
-  <div class="actions">
-    <%= f.submit %>
+
+  <hr>
+
+  <div class="form-group">
+
+    <%= f.submit class: "btn btn-primary" %>
+
+    <a href="<%= url_for @record %>" class="btn">
+      Cancel
+    </a>
+
   </div>
+
 <% end %>

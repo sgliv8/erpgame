@@ -1,7 +1,11 @@
 
-<h1>Listing Records</h1>
+<h1>Records</h1>
 
-<table>
+<div class="pull-right">
+     <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
+</div>
+
+<table class="table">
   <thead>
     <tr>
       <th>User</th>
@@ -44,6 +48,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Record', new_record_path %>
+<div class="pull-right">
+  <%= will_paginate @records, renderer: BootstrapPagination::Rails %>
+</div>
