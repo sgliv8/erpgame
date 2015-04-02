@@ -1,7 +1,12 @@
 
-<h1>Listing Records</h1>
+<h1>Records</h1>
 
-<table>
+<div class="pull-right"  style="margin-bottom: 20px;">
+     <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
+</div>
+
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>User</th>
@@ -27,15 +32,21 @@
         <td><%= record.inventory_penalty %></td>
         <td><%= record.order_penalty %></td>
         <td><%= record.end_cash %></td>
-        <td><%= link_to 'Show', record %></td>
-        <td>
+        <td colspan="3">
+          <%= link_to 'Show', record, class: 'btn btn-default'%>
           <% if can? :update, record %>
-            <%= link_to 'Edit', edit_record_path(record) %>
+            <%= link_to edit_record_path(record), class: 'btn btn-primary' do %>
+              <i class='fa fa-pencil-square-o'></i>
+            <% end %>
           <% end %>
-        </td>
-        <td>
           <% if can? :destroy, record %>
-            <%= link_to 'Destroy', record, method: :delete, data: { confirm: 'Are you sure?' } %>
+          
+          <div style="display:inline-block;">
+            <button class="delete-confirm btn btn-danger"><i class="fa fa-trash-o"></i></button>
+            <%= link_to record, method: :delete, class: 'delete-button' do%>
+              <i class='fa fa-pencil-square-o'></i>
+            <% end %>
+          </div>
           <% end %>
         </td>
         
@@ -44,6 +55,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Record', new_record_path %>
+<div class="pull-right">
+  <%= will_paginate @records, renderer: BootstrapPagination::Rails %>
+</div>

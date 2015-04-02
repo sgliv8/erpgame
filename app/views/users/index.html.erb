@@ -1,8 +1,11 @@
+<h1>Users</h1>
+
+<div class="pull-right" style="margin-bottom: 20px;">
+     <%= link_to 'Create New User', new_user_path, class: 'btn btn-primary' %>
+</div>
 
 
-<h1>Listing Users</h1>
-
-<table>
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>First Name</th>
@@ -28,6 +31,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %>
+<div class="pull-right">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

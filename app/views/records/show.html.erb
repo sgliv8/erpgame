@@ -1,44 +1,64 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h2>Record Details</h2>
+      </div>
 
-<p>
-  <strong>Round:</strong>
-  <%= @record.round %>
-</p>
+      <div class="panel-body">
+        <div class="form-group">
+          <h4>Round:</h4>
+          <%= @record.round %>
+        </div>
 
-<p>
-  <strong>Beginning Cash Balance:</strong>
-  <%= @record.begin_cash %>
-</p>
+        <div class="form-group">
+          <h4>Beginning Cash Balance:</h4>
+          <%= @record.begin_cash %>
+        </div>
 
-<p>
-  <strong>Expenses:</strong>
-  <%= @record.expenses %>
-</p>
+        <div class="form-group">
+          <h4>Expenses:</h4>
+          <%= @record.expenses %>
+        </div>
 
-<p>
-  <strong>Revenue:</strong>
-  <%= @record.revenue %>
-</p>
+        <div class="form-group">
+          <h4>Revenue:</h4>
+          <%= @record.revenue %>
+        </div>
 
-<p>
-  <strong>Inventory Penalty:</strong>
-  <%= @record.inventory_penalty %>
-</p>
+        <div class="form-group">
+          <h4>Inventory Penalty:</h4>
+          <%= @record.inventory_penalty %>
+        </div>
 
-<p>
-  <strong>Order Penalty:</strong>
-  <%= @record.order_penalty %>
-</p>
+        <div class="form-group">
+          <h4>Order Penalty:</h4>
+          <%= @record.order_penalty %>
+        </div>
 
-<p>
-  <strong>Ending Cash Balance:</strong>
-  <%= @record.end_cash %>
-</p>
+        <div class="form-group">
+          <h4>Ending Cash Balance:</h4>
+          <%= @record.end_cash %>
+        </div>
 
-<p>
-  <strong>User:</strong>
-  <%= @record.user.name %>
-</p>
+        <div class="form-group">
+          <h4>User:</h4>
+          <%= @record.user.name %>
+        </div>
 
-<%= link_to 'Edit', edit_record_path(@record) %> |
-<%= link_to 'Back', records_path %>
+        <hr>
+        <div class="form-group">
+
+          <%= link_to 'Edit', edit_record_path(@record), class: 'btn btn-primary' %>
+          <%= link_to 'Back', records_path, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

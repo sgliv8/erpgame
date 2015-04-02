@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :records
+  resources :records do
+     get 'begincash', on: :collection
+  end
 
   resources :roles
 
