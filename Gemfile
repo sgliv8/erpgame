@@ -48,5 +48,6 @@ gem 'cancancan', '~> 1.10.1'
 gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'paperclip', '~> 4.2.1'
 
 
