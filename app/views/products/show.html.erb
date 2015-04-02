@@ -1,4 +1,7 @@
 
+<p>
+  <%= image_tag @product.image.url(:medium) %>
+</p>
 
 <p>
   <strong>Name:</strong>
@@ -9,6 +12,8 @@
   <strong>Description:</strong>
   <%= @product.description %>
 </p>
+
+
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   #rescue form for flash error message and redirection
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:error] = "Access denied!"
+    flash[:error] = "You are not allow to view this page!"
     redirect_to root_url
   end
 
