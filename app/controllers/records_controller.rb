@@ -6,7 +6,7 @@ class RecordsController < ApplicationController
   # GET /records
   # GET /records.json
   def index
-    @records = Record.where(user_id: current_user).paginate(:page => params[:page], :per_page => 5)
+    @records = Record.where(user_id: current_user).paginate(:page => params[:page], :per_page => 10)
 
     if(current_user.role.name == "Admin")
       @records = Record.all.paginate(:page => params[:page], :per_page => 10)
@@ -73,6 +73,22 @@ class RecordsController < ApplicationController
 
     respond_to do |format|
       format.json { render :json => @begincash }
+    end
+  end
+
+  def cashposition
+    @selection = Record.pluck('DISTINCT round')
+
+    @cashrecords = Record.where(round: 1).order('end_cash DESC');
+
+
+  end
+
+  def newcashposition
+    @cashrecords = Record.select("records.round, records.end_cash, users.name, users.last_name").where(round: params[:round]).joins(:user).order('end_cash DESC');
+
+    respond_to do |format|
+      format.json { render :json => @cashrecords }
     end
   end
 

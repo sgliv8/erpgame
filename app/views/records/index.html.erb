@@ -10,8 +10,12 @@
   <div id="links">
     <div class="wrapper_skinny">
       <ul>
-        <li class="current">Data Entry</li>
-        <li><%= link_to "Current Cash Position", records_path %></li>
+        <% if current_user.role.name == 'Admin' %>
+          <li class="current">Manage Data</li>
+        <% else %>
+          <li class="current">Data Entry</li>
+        <% end %>
+        <li><%= link_to "Current Cash Position", cashposition_records_path %></li>
       </ul>
     </div>
   </div>
@@ -20,9 +24,14 @@
 
 
 <div class="wrapper_wide">
-  <div class="pull-right"  style="margin-bottom: 20px;">
-     <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
-  </div>
+
+  <% if current_user.role.name == 'Admin' %>
+    <div style="display:none"></div>
+  <% else %>
+    <div class="pull-right"  style="margin-bottom: 20px;">
+       <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
 
 
   <table class="table table-bordered table-striped">

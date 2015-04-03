@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	// this handler will be invoked BEFORE the request is sent to the server, we can do checking here
-	$('#record_round').on('change', function(evt) {
+	$('#record_round').on('ajax:before', function(evt) {
 	  // 
 	  // console.log($(this).val());
 	  var roundInput = $('#record_round');
@@ -51,29 +51,48 @@ $(document).ready(function(){
 	  // data is now an array containing your objects 
 	  // you can dump them on firebug or your web browser console using console.log(data); 
 	}); 
+
+
+
+	//retrieve all new data from different round
+	$('#round').on('ajax:before', function(evt) {
+	  // 
+	  // console.log($(this).val());
+	  var roundInput = $('#round');
+	  //var userInput = $('#record_user_id');
+	  console.log(roundInput);
+	  //console.log(userInput);
+
+	  // we need both values to send a request
+	  if(roundInput.val()) {
+	    // add parameters
+	    //roundInput.val(roundInput.val() - 1);
+	    $(this).data('params', roundInput.serialize());
+	    console.log($(this).data('params'));
+	  }
+	  else
+	  {
+	    return false;
+	  }
+	});
+
+
+		// this handler will be invoked when the request has completed successfully
+	$('#round').on('ajax:success', function(evt, data) {
+		var roundInput = $('#round');
+
+			console.log(data);
+			$('tr.cash').html('');
+			$.each(data, function(index, element){
+				var fullName = element.name + ' ' + element.last_name;
+				$("table.table").append("<tr class='cash'><td>" + fullName + "</td><td>" + element.round + "</td><td>" + element.end_cash + "</td></tr>");
+			});
+		
+		
+	  // data is now an array containing your objects 
+	  // you can dump them on firebug or your web browser console using console.log(data); 
+	}); 
+
 });
 
 
-// $(document).ready(function(){
-// 	$('#record_round').change(function(){
-//      var roundInput = $('#record_round');
-//      var userInput = $('#record_user_id');
-
-//      $.ajax({
-//             type: 'POST',
-//             url: '/records/getbegincash',
-//             data: {  record_round: roundInput, rec : userInput },
-//             dataType: 'json',
-//             success: function(xhr, textStatus) {
-//                 alert('awesome!!!');
-//             },
-//             error: function(xhr, textStatus, errorThrown) {
-//                             alert('something went wrong');
-//             }
-
-//         });
-
-//  	});
-
-
-// });

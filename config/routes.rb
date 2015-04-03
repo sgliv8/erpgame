@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :records do
      get 'begincash', on: :collection
+     get 'cashposition', on: :collection
+     get 'newcashposition', on: :collection
   end
 
   resources :roles

@@ -49,9 +49,7 @@
 
     <%= f.submit class: "btn btn-primary" %>
 
-    <a href="<%= url_for @record %>" class="btn btn-danger">
-      Cancel
-    </a>
+    <%= link_to 'Back', root_path, class: 'btn btn-danger' %>
 
   </div>
 

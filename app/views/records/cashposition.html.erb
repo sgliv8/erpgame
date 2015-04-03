@@ -1,0 +1,49 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Welcome Back, <%= current_user.full_name %>!</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <% if current_user.role.name == 'Admin' %>
+          <li><%= link_to "Manage Data", root_path %></li>
+        <% else %>
+          <li><%= link_to "Data Entry", root_path %></li>
+        <% end %>
+        <li class="current">Current Cash Position</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper_rules">
+
+  <div class="form-group pull-right" style="display:inline-block;">
+    <label>Round</label>
+
+    <%= select_tag(:round, options_from_collection_for_select(Record.pluck('DISTINCT round'), :round, :round),  :class => 'form-control', :'data-remote' => true, :'data-url' => '/records/newcashposition', :'data-type' => 'json') %>
+  </div>
+  
+  <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Player Name</th>
+          <th>Round</th>
+          <th>Ending Cash Balance</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @cashrecords.each do |record| %>
+          <tr class="cash">
+            <td><%= record.user.full_name %></td>
+            <td><%= record.round %></td>
+            <td><%= record.end_cash %></td>    
+          </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

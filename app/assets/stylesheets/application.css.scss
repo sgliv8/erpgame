@@ -52,7 +52,16 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+//overwrite bootstrap style
+.table>thead:first-child>tr:first-child>th {
+	text-align: center;
+}
 
+.table {
+	text-align:center;
+}
+
+// logo style
 #logo {
 	font-size: 25px;
 	color: $dark;
