@@ -7,7 +7,7 @@ module ApplicationHelper
 		when 'error'
 			then "danger"
 		else
-			""
+			"danger"
 		end
 	end
 	

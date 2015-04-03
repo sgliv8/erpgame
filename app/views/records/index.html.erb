@@ -1,60 +1,83 @@
+<%= render 'layouts/header'; %>
 
-<h1>Records</h1>
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Welcome Back, <%= current_user.full_name %>!</h1>
+    </div>
+  </div>
 
-<div class="pull-right"  style="margin-bottom: 20px;">
-     <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <li class="current">Data Entry</li>
+        <li><%= link_to "Current Cash Position", records_path %></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Round</th>
-      <th>Begining Cash Balance</th>
-      <th>Expenses</th>
-      <th>Revenue</th>
-      <th>Inventory Penalty</th>
-      <th>Order Penalty</th>
-      <th>Ending Cash Balance</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @records.each do |record| %>
+<div class="wrapper_wide">
+  <div class="pull-right"  style="margin-bottom: 20px;">
+     <%= link_to 'Create New Record', new_record_path, class: 'btn btn-primary' %>
+  </div>
+
+
+  <table class="table table-bordered table-striped">
+    <thead>
       <tr>
-        <td><%= record.user.name%></td>
-        <td><%= record.round %></td>
-        <td><%= record.begin_cash %></td>
-        <td><%= record.expenses %></td>
-        <td><%= record.revenue %></td>
-        <td><%= record.inventory_penalty %></td>
-        <td><%= record.order_penalty %></td>
-        <td><%= record.end_cash %></td>
-        <td colspan="3">
-          <%= link_to 'Show', record, class: 'btn btn-default'%>
-          <% if can? :update, record %>
-            <%= link_to edit_record_path(record), class: 'btn btn-primary' do %>
-              <i class='fa fa-pencil-square-o'></i>
-            <% end %>
-          <% end %>
-          <% if can? :destroy, record %>
-          
-          <div style="display:inline-block;">
-            <button class="delete-confirm btn btn-danger"><i class="fa fa-trash-o"></i></button>
-            <%= link_to record, method: :delete, class: 'delete-button' do%>
-              <i class='fa fa-pencil-square-o'></i>
-            <% end %>
-          </div>
-          <% end %>
-        </td>
-        
+        <th>User</th>
+        <th>Round</th>
+        <th>Begining Cash Balance</th>
+        <th>Expenses</th>
+        <th>Revenue</th>
+        <th>Inventory Penalty</th>
+        <th>Order Penalty</th>
+        <th>Ending Cash Balance</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<div class="pull-right">
-  <%= will_paginate @records, renderer: BootstrapPagination::Rails %>
+    <tbody>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= record.try(:user).try(:name) %></td>
+          <td><%= record.round %></td>
+          <td><%= record.begin_cash %></td>
+          <td><%= record.expenses %></td>
+          <td><%= record.revenue %></td>
+          <td><%= record.inventory_penalty %></td>
+          <td><%= record.order_penalty %></td>
+          <td><%= record.end_cash %></td>
+          <td colspan="3">
+            <%= link_to 'Show', record, class: 'btn btn-default'%>
+            <% if can? :update, record %>
+              <%= link_to edit_record_path(record), class: 'btn btn-primary' do %>
+                <i class='fa fa-pencil-square-o'></i>
+              <% end %>
+            <% end %>
+            <% if can? :destroy, record %>
+            
+            <div style="display:inline-block;">
+              <button class="delete-confirm btn btn-danger"><i class="fa fa-trash-o"></i></button>
+              <%= link_to record, method: :delete, class: 'delete-button' do%>
+                <i class='fa fa-pencil-square-o'></i>
+              <% end %>
+            </div>
+            <% end %>
+          </td>
+          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="pull-right">
+    <%= will_paginate @records, renderer: BootstrapPagination::Rails %>
+  </div>
+
+
+
 </div>

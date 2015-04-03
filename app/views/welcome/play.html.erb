@@ -1,0 +1,40 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Flow of Play</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+      	<li><%= link_to "Description&Objectives", welcome_objective_path %></li>
+        <li><%= link_to "Products", welcome_products_path %></li>
+        <li><%= link_to "Roles", welcome_roles_path %></li>
+		<li class="current">Flow of Play</li>        			  <li><%= link_to "Tier 2 Manufacturers", welcome_bom_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="wrapper_rules">    
+      <div class="description">
+        <h1>Flow of Play</h1>
+        <img src="<%= asset_path( 'play.png' ) %>" alt="objective">
+        <h3 style="color: #d2674e; margin-top: 2em;">Instruction:</h3>
+        <ul>
+        	<li>All players begin with $100,000</li>
+        	<li>Tier 2 manufacturers buy component parts and sell complete chairs.</li>
+        	<li>Distributors order and sell complete chairs.</li>
+        	<li>All players will create written Purchase Orders (POs) for the purchases they wish to make. </li>
+        	<li style="list-style-type: circle; margin-left: 3em">Purchase orders should contain  at a minimum product type, number of units of each being ordered , and cost of each unit.</li>
+        	<li>Both Tier 2 manufacturers and Distributors are free to order and sell as much or as little product as they wish.</li>
+        	<li>Once a player places an order, and the supplier confirms that they can deliver, product is assumed to be delivered immediately. </li>
+        	<li style="list-style-type: circle; margin-left: 3em">Funds for payment also transfer immediately.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="padding: 3rem;"></div>
+  </div>
+
+</div>

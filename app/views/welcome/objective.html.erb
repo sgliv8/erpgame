@@ -1,0 +1,38 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Game Description and Objectives</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <li class="current">Description&amp;Objectives</li>
+        <li><%= link_to "Products", welcome_products_path %></li>
+        <li><%= link_to "Roles", welcome_roles_path %></li>
+        <li><%= link_to "Flow of Play", welcome_play_path %></li>
+        <li><%= link_to "Tier 2 Manufacturers", welcome_bom_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="wrapper_rules">
+      <div class="description">
+        <h1>Description</h1>
+        <p>This game is designed to mimic the interactions that take place in a highly simplified 4-tier supply chain. As in real life, the success is based on skill, creativity, adaptability, and luck.  However, the game’s primary purpose is to challenge players  to maximize the effectiveness of their supply chain interactions to deliver financial results.
+        </p>
+      </div>    
+      <div class="description">
+        <h1>Objective</h1>
+        <p>
+          The objective of the game is to become the company with the largest cash position at the end of the number of rounds specified. To do so you will need to buy and sell product, manage demand, forecast, collaborate, and otherwise optimize operations.  
+        </p>
+        <img src="<%= asset_path( 'objective.png' ) %>" alt="objective">
+        <div style="padding: 3rem;"></div>
+      </div>
+    </div>
+
+  </div>
+</div>

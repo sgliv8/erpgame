@@ -20,67 +20,34 @@
   <![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-		<div class="container">
-			<div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand" href="/records">ERP Games</a>
-		    </div>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-				<ul class="nav navbar-nav navbar-right">
-					<% if user_signed_in? %>
-						<li class="dropdown">
-	          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.full_name %> <span class="caret"></span></a>
-		          <ul class="dropdown-menu" role="menu">
-		            <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-		            <li class="divider"></li>
-		            <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-		          </ul>
-		        </li>
-
-						<% if current_user.role.name == 'Admin' %>
-
-			        <li class="dropdown">
-		          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.role.name %> <span class="caret"></span></a>
-			          <ul class="dropdown-menu" role="menu">
-			            <li><%= link_to 'Manage Users', users_path %></li>
-			            <li class="divider"></li>
-			            <li><%= link_to 'Manage Records', records_path %></li>
-			            <li class="divider"></li>
-			            <li><%= link_to "Manage Products" %></li>
-			          </ul>
-			        </li>
-						<% else %>
-							<li><%= link_to current_user.role.name %></li>
-						<% end %>
-					<% else %>
-						<li><%= link_to "Sign In", new_user_session_path %></li>
-						<li><%= link_to "Sign Up", new_user_registration_path %></li>
-					<% end %>
-				</ul>
-		    </div>
+	<% if alert %>
+	<div id="notice_wrapper">
+		<p class="alert"><%= alert %></p>
+	</div>
+	<% elsif notice %>
+		<div id="notice_wrapper">
+			<p class="notice"><%= notice %></p>
 		</div>
-	</nav>
-	<div id="flash-div" class="container">
-		<% flash.each do |type, message| %>
-			<div class="alert alert-<%= flash_class_name(type) %>" role="alert">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<%= message %>
-			</div>
-		<% end %>
+	<% end %>
 
-	
-		<div id="content-div">
-			<%= yield %>
-		</div>
+	<% unless current_page?(root_path) %>
+		<%= render 'layouts/header'; %>
+	<% end %>
+
+	<div id="content-div">
+		<%= yield %>
 	</div>
 
+
+<script>
+	$(document).ready(function(){
+		setTimeout(function() {
+			$('#notice_wrapper').fadeOut("slow", function() {
+				$this.remove();
+			});
+		}, 4500 );
+	});
+</script>
 </body>
 </html>

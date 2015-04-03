@@ -1,20 +1,32 @@
+<div id="product_show" class="row">
+	<div class="col-md-8 col-md-offset-2">
+		<div class="panel panel-default">
+			<div class="panel-heading product_image">
+				<%= image_tag @product.image.url %> 
+			</div>
+			<div class="panel-body">
+				<h1><%= @product.name %></h1>
+				<p><%= @product.description %></p>
+			</div>
+			<div class="panel-footer">
+				<div class="row">
+					<div class="col-md-6"><a href="/products"><i class="fa fa-arrow-circle-o-left fa-3x" style="color: #d2674e;"></i></a></div>
+					<div class="col-md-6">
+						<div class="btn-group pull-right">
+							<%= link_to "Edit", edit_product_path, class: "btn btn-default" %>
+							<div style="display:inline-block;">
+				              <button class="delete-confirm btn btn-default">Delete</button>
+				              <%= link_to @product, method: :delete, class: 'delete-button' do%>
+				                <i class='fa fa-pencil-square-o'></i>
+				              <% end %>
+				            </div>	
+   							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-<p>
-  <%= image_tag @product.image.url(:medium) %>
-</p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-
-
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

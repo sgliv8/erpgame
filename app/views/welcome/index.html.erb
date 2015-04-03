@@ -1,2 +1,18 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<div id="background">
+	<header class="cf">
+		<div class="wrapper_wide">
+			<a href="#" id="logo">ERP Game</a>
+			<nav>
+				<ul>
+					<li><%= link_to "Game Rules", welcome_objective_path %></li>
+					<li><%= link_to "Sign In", new_user_session_path %></li>
+					<li><%= link_to "Sign Up", new_user_registration_path %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div class="wrapper_skinny">
+		<h1>Welcome everyone!<br> This is a place where you learn supply chain management by playing a game! </h1>
+		<%= link_to "Let's get started", new_user_registration_path, class: "button button_highlight" %>
+	</div>
+</div>

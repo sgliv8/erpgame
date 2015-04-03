@@ -1,0 +1,70 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Game Roles</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Description&Objectives", welcome_objective_path %></li>
+        <li><%= link_to "Products", welcome_products_path %></li>
+        <li class="current">Roles</li>
+        <li><%= link_to "Flow of Play", welcome_play_path %></li>
+        <li><%= link_to "Tier 2 Manufacturers", welcome_bom_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="wrapper_rules">
+      <div class="description">
+        <h1>Roles</h1>
+        <p>The 4 types of companies in this game are:
+        </p>
+        <ol class="cf">
+        	<li class="cf">
+        		<div class="step">
+        			<h3>Tier 1 Manufacturers</h3>
+        			<p>These companies procure raw materials and produce the bolts, screws, and all other inputs that are required to manufacture the chairs. </p>
+        		</div>
+        		<div class="pic">
+        			<img src="<%= asset_path( 't1.png' ) %>" alt="Tier 1 Manufacturers">
+        		</div>
+        	</li>
+        	<li class="cf">
+        		<div class="step">
+        			<h3>Tier 2 Manufacturers</h3>
+        			<p>These companies actually manufacture the chairs (finished goods) using the inputs they purchase from Tier 1 manufacturers.  All Tier 2 manufacturers produce all 4 models of chairs.</p>
+        		</div>
+        		<div class="pic">
+        			<img src="<%= asset_path( 't2.png' ) %>" alt="Tier 2 Manufacturers">
+        		</div>
+        	</li>
+        	<li class="cf">
+        		<div class="step">
+        			<h3>Distributor</h3>
+        			<p>These companies purchase chairs (finished goods) from the Tier 2 manufacturers and fill orders from the Retailers.  All distributors sell all 4 products.</p>
+        		</div>
+        		<div class="pic">
+        			<img src="<%= asset_path( 'dis.png' ) %>" alt="Distributor">
+        		</div>
+        		
+        	</li>
+        	<li class="cf">
+        		<div class="step">
+        			<h3>Retailer</h3>
+        			<p>These companies purchase chairs (finished goods) from the distributors to fill orders from the end customer. Retailers sell all 4 products.</p>
+        		</div>
+        		<div class="pic">
+        			<img src="<%= asset_path( 'retails.png' ) %>" alt="Retailer">
+        		</div>
+        	</li>
+        </ol>
+        <p style="margin-top: 30px;"><span style="color: #d2674e;">Note:</span> All players will be assigned roles as either  Tier 2 Manufacturers or Retailers.  The instructor acts as both the Tier 1 Manufacturer and the Retailer.</p>
+      </div>
+      <div style="padding: 3rem;"></div>    
+    </div>
+
+</div>

@@ -1,0 +1,35 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Tier 2 Manufacturers</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+      	<li><%= link_to "Description&Objectives", welcome_objective_path %></li>
+        <li><%= link_to "Products", welcome_products_path %></li>
+        <li><%= link_to "Roles", welcome_roles_path %></li>
+        <li><%= link_to "Flow of Play", welcome_play_path %></li>
+        <li class="current">Tier 2 Manufacturers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="wrapper_rules">    
+      <div class="description">
+        <h1>Bill of Materials for Tier 2 Manufacturers</h1>
+        <ul>
+        	<li>Each Tier 2 Manufacturer builds chairs using the same bill of materials (below).</li>
+        	<li>Tier 2 Manufacturer can only build chairs for which it has ALL items in the bill of materials.</li>
+        </ul>
+        <h3 style="color: #d2674e; margin-top: 2em;">Table for Bill of Materials:</h3>
+        <img src="<%= asset_path( 'bill.png' ) %>" alt="objective">
+        <div style="padding: 3rem;"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

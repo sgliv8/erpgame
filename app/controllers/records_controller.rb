@@ -7,6 +7,10 @@ class RecordsController < ApplicationController
   # GET /records.json
   def index
     @records = Record.where(user_id: current_user).paginate(:page => params[:page], :per_page => 5)
+
+    if(current_user.role.name == "Admin")
+      @records = Record.all.paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /records/1

@@ -1,0 +1,52 @@
+<div id="podcast_show">
+  <div id="show_banner">
+    <div class="wrapper_skinny">
+      <h1>Game Products</h1>
+    </div>
+  </div>
+
+  <div id="links">
+    <div class="wrapper_skinny">
+      <ul>
+        <li><%= link_to "Description&Objectives", welcome_objective_path %></li>
+        <li class="current">Products</li>
+        <li><%= link_to "Roles", welcome_roles_path %></li>
+        <li><%= link_to "Flow of Play", welcome_play_path %></li>
+        <li><%= link_to "Tier 2 Manufacturers", welcome_bom_path %></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="wrapper_rules">
+      <div class="description">
+        <h1>Products</h1>
+        <p>In this game there are only 4 types of products – all of them office chairs.  They vary in production price, cost, and quality, in descending order as follows:
+        </p>
+        <ul>
+        	<% @products.each do |product| %>
+        	<li><%= product.name %> - <%= product.description %></li>
+        	<% end %>
+        </ul>
+      </div>    
+    </div>
+</div>
+
+<div id="products">
+  <div class="wrapper">
+    <% @products.each do |product| %>
+      <div class="col-md-3">
+        <div class="box panel panel-default">
+          <%= image_tag product.image.url %>
+          <div class="panel-body">
+            <h2><%= product.name %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<div style="margin: 3rem;"></div>
