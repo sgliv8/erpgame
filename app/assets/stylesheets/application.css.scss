@@ -55,6 +55,7 @@ h1, h2, h3, h4, h5, h6 {
 //overwrite bootstrap style
 .table>thead:first-child>tr:first-child>th {
 	text-align: center;
+	background: darken(#F6F6F6, 20%);
 }
 
 .table {

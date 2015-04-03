@@ -1,7 +1,13 @@
 $(document).ready(function(){
 	// this handler will be invoked BEFORE the request is sent to the server, we can do checking here
+	var loading = $("#loading");
+	// $('#record_round').on('ajax:start', function(){
+		
+	// });
+
+		
 	$('#record_round').on('ajax:before', function(evt) {
-	  // 
+	  loading.show();
 	  // console.log($(this).val());
 	  var roundInput = $('#record_round');
 	  var userInput = $('#record_user_id');
@@ -52,7 +58,9 @@ $(document).ready(function(){
 	  // you can dump them on firebug or your web browser console using console.log(data); 
 	}); 
 
-
+	$('#record_round').on('ajax:complete', function(){
+		loading.hide();
+	});
 
 	//retrieve all new data from different round
 	$('#round').on('ajax:before', function(evt) {

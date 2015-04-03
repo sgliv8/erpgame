@@ -17,7 +17,10 @@
     <%= f.number_field :round, :'data-remote' => true, :'data-url' => '/records/begincash', :'data-type' => 'json', class: 'form-control' %>
   </div>
   <div class="form-group">
-    <label>Beginning Cash Balance</label>
+    <div style="display:inline-block">
+      <label>Beginning Cash Balance</label>
+      <img src="<%= asset_path( 'ajax-loader.gif' ) %>" alt="ajax-loader" id="loading" style="margin-left: 10px; display:none;">
+    </div>
     <%= f.text_field :begin_cash, class: 'form-control' %>
   </div>
   <div id="beginCashError" style="color: red;"></div>

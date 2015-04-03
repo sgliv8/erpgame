@@ -1,4 +1,7 @@
-<%= render 'layouts/header'; %>
+<% if current_page?(root_path) %>
+    <%= render 'layouts/header'; %>
+  <% end %>
+
 
 <div id="podcast_show">
   <div id="show_banner">
