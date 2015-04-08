@@ -62,12 +62,22 @@ h1, h2, h3, h4, h5, h6 {
 	text-align:center;
 }
 
+.navbar-default .navbar-nav>li>a {
+	color: $dark;
+	&:hover {
+		color: $highlight;
+	}
+}
+
+
+
 // logo style
 #logo {
 	font-size: 25px;
 	color: $dark;
 		&:hover {
-			color:$highlight;
+			color:$dark;
+			text-decoration: none;
 		}
 }
 
@@ -206,15 +216,12 @@ h1, h2, h3, h4, h5, h6 {
 footer {
 	width: 100%;
 	padding: 2rem 0;
-	color: $highlight;
+	color: $dark;
 	border-top: 5px solid $highlight;
+	text-align: center;
 	p {
 		margin: 0;
-		font-size: 1.2em;
-	}
-	img {
-  		margin-top: -8px;
-  		margin-bottom: 10px;
+		font-size: 1em;
 	}
 }
 

@@ -8,7 +8,10 @@
 		        <span class="icon-bar"></span>
 		      </button>
 		      <!-- <a class="navbar-brand" href="/records" style="font-size: 25px;">ERP Games</a> -->
-		      <%= link_to "ERP Games", root_path, class: "navbar-brand", id: "logo" %>
+		      <div class="navbar-brand">
+		      	<img src="<%= asset_path( 'logo.jpg' ) %>" alt="logo" width="40"; height="40" style="margin-top: -10px;">
+		      	<%= link_to "Take a Seat", root_path, id: "logo" %>
+		      </div>
 		    </div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
