@@ -26,7 +26,7 @@ gem 'jquery-turbolinks', '~> 2.1.0'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'paperclip', '~> 4.2.1'
-gem 'aws-sdk', '~> 2.0.37'
+gem 'aws-sdk', '< 2.0'
 
 
 group :development do
