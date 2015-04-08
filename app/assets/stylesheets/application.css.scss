@@ -202,6 +202,38 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+//footer style
+footer {
+	width: 100%;
+	padding: 2rem 0;
+	color: $highlight;
+	border-top: 5px solid $highlight;
+	p {
+		margin: 0;
+		font-size: 1.2em;
+	}
+	img {
+  		margin-top: -8px;
+  		margin-bottom: 10px;
+	}
+}
+
+
+//stickky footer style
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -65px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+footer, .page-wrap:after {
+  height: 65px; 
+}
 
 
 @import 'products.css.scss';
