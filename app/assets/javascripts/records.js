@@ -64,7 +64,7 @@ $(document).ready(function(){
 
 	//retrieve all new data from different round
 	$('#round').on('ajax:before', function(evt) {
-	  // 
+	  loading.show();
 	  // console.log($(this).val());
 	  var roundInput = $('#round');
 	  //var userInput = $('#record_user_id');
@@ -100,6 +100,10 @@ $(document).ready(function(){
 	  // data is now an array containing your objects 
 	  // you can dump them on firebug or your web browser console using console.log(data); 
 	}); 
+
+	$('#round').on('ajax:complete', function(){
+		loading.hide();
+	});
 
 });
 
