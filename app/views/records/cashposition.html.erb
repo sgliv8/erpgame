@@ -25,7 +25,7 @@
     margin-bottom: 10px;">
       <img src="<%= asset_path( 'ajax-loader.gif' ) %>" alt="ajax-loader" id="loading" style="margin-left: 10px; display:none;">
       <label style="margin-right: 5px;">Round</label>
-      <%= select_tag(:round, options_from_collection_for_select(Record.pluck('DISTINCT round'), :round, :round),  :class => 'form-control', :'data-remote' => true, :'data-url' => '/records/newcashposition', :'data-type' => 'json') %>
+      <%= select_tag(:round, options_from_collection_for_select(Record.pluck('DISTINCT round').sort! { |a,b| a <=> b }, :round, :round),  :class => 'form-control', :'data-remote' => true, :'data-url' => '/records/newcashposition', :'data-type' => 'json') %>
     </div>
   </div>
   

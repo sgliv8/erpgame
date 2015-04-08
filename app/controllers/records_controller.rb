@@ -77,7 +77,6 @@ class RecordsController < ApplicationController
   end
 
   def cashposition
-    @selection = Record.pluck('DISTINCT round')
 
     @cashrecords = Record.where(round: 1).order('end_cash DESC');
 
