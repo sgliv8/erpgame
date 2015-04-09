@@ -21,28 +21,28 @@
       <label>Beginning Cash Balance</label>
       <img src="<%= asset_path( 'ajax-loader.gif' ) %>" alt="ajax-loader" id="loading" style="margin-left: 10px; display:none;">
     </div>
-    <%= f.text_field :begin_cash, class: 'form-control' %>
+    <%= f.text_field :begin_cash, class: 'form-control', :value => (number_with_precision(f.object.begin_cash, :precision => 2)) %>
   </div>
   <div id="beginCashError" style="color: red;"></div>
   <div class="form-group">
     <label>Expenses</label>
-    <%= f.text_field :expenses, class: 'form-control' %>
+    <%= f.text_field :expenses, class: 'form-control', :value => (number_with_precision(f.object.expenses, :precision => 2))%>
   </div>
   <div class="form-group">
     <label>Revenue</label>
-    <%= f.text_field :revenue, class: 'form-control' %>
+    <%= f.text_field :revenue, class: 'form-control', :value => (number_with_precision(f.object.revenue, :precision => 2)) %>
   </div>
   <div class="form-group">
     <label>Inventory Penalty</label>
-    <%= f.text_field :inventory_penalty, class: 'form-control' %>
+    <%= f.text_field :inventory_penalty, class: 'form-control', :value => (number_with_precision(f.object.inventory_penalty, :precision => 2)) %>
   </div>
   <div class="form-group">
     <label>Order Penalty</label>
-    <%= f.text_field :order_penalty, class: 'form-control' %>
+    <%= f.text_field :order_penalty, class: 'form-control', :value => (number_with_precision(f.object.order_penalty, :precision => 2)) %>
   </div>
   <div class="form-group">
     <label>Ending Cash Balance</label>
-    <%= f.text_field :end_cash, class: 'form-control' %><br/>
+    <%= f.text_field :end_cash, class: 'form-control', :value => (number_with_precision(f.object.end_cash, :precision => 2)) %><br/>
     <button id="endcash" class="btn btn-success">Calculate Ending Balance</button>
   </div>
 

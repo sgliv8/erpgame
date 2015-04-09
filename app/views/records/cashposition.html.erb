@@ -43,7 +43,7 @@
           <tr class="cash">
             <td><%= record.user.full_name %></td>
             <td><%= record.round %></td>
-            <td><%= record.end_cash %></td>    
+            <td><%= number_with_precision(record.end_cash, :precision => 2) %></td>    
           </tr>
         <% end %>
     </tbody>

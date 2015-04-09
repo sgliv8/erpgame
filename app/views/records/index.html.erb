@@ -76,12 +76,12 @@
         <tr>
           <td><%= record.try(:user).try(:name) %></td>
           <td><%= record.round %></td>
-          <td><%= record.begin_cash %></td>
-          <td><%= record.expenses %></td>
-          <td><%= record.revenue %></td>
-          <td><%= record.inventory_penalty %></td>
-          <td><%= record.order_penalty %></td>
-          <td><%= record.end_cash %></td>
+          <td><%= number_with_precision(record.begin_cash, :precision => 2) %></td>
+          <td><%= number_with_precision(record.expenses, :precision => 2) %></td>
+          <td><%= number_with_precision(record.revenue, :precision => 2) %></td>
+          <td><%= number_with_precision(record.inventory_penalty, :precision => 2) %></td>
+          <td><%= number_with_precision(record.order_penalty, :precision => 2) %></td>
+          <td><%= number_with_precision(record.end_cash, :precision => 2) %></td>
           <td colspan="3">
             <%= link_to 'Show', record, class: 'btn btn-default'%>
             <% if can? :update, record %>
