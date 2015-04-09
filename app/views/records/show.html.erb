@@ -13,32 +13,32 @@
 
         <div class="form-group">
           <h4>Beginning Cash Balance:</h4>
-          <%= @record.begin_cash %>
+          <%= number_with_precision(@record.begin_cash, :precision => 2) %>
         </div>
 
         <div class="form-group">
           <h4>Expenses:</h4>
-          <%= @record.expenses %>
+          <%= number_with_precision(@record.expenses, :precision => 2) %>
         </div>
 
         <div class="form-group">
           <h4>Revenue:</h4>
-          <%= @record.revenue %>
+          <%= number_with_precision(@record.revenue, :precision => 2) %>
         </div>
 
         <div class="form-group">
           <h4>Inventory Penalty:</h4>
-          <%= @record.inventory_penalty %>
+          <%= number_with_precision(@record.inventory_penalty, :precision => 2) %>
         </div>
 
         <div class="form-group">
           <h4>Order Penalty:</h4>
-          <%= @record.order_penalty %>
+          <%= number_with_precision(@record.order_penalty, :precision => 2) %>
         </div>
 
         <div class="form-group">
           <h4>Ending Cash Balance:</h4>
-          <%= @record.end_cash %>
+          <%= number_with_precision(@record.end_cash, :precision => 2) %>
         </div>
 
         <hr>
