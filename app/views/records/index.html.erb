@@ -84,12 +84,11 @@
           <td><%= number_with_precision(record.end_cash, :precision => 2) %></td>
           <td colspan="3">
             <%= link_to 'Show', record, class: 'btn btn-default'%>
-            <% if can? :update, record %>
-              <%= link_to edit_record_path(record), class: 'btn btn-primary' do %>
-                <i class='fa fa-pencil-square-o'></i>
-              <% end %>
+            
+            <%= link_to edit_record_path(record), class: 'btn btn-primary' do %>
+              <i class='fa fa-pencil-square-o'></i>
             <% end %>
-            <% if can? :destroy, record %>
+            
             
             <div style="display:inline-block;">
               <button class="delete-confirm btn btn-danger"><i class="fa fa-trash-o"></i></button>
@@ -97,7 +96,6 @@
                 <i class='fa fa-pencil-square-o'></i>
               <% end %>
             </div>
-            <% end %>
           </td>
           
         </tr>
